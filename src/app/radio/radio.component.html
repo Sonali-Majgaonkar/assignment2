@@ -3,11 +3,13 @@
     <form #myForm="ngForm" (ngSubmit)="onSubmitFun()">
         <div class="form-group">
             <label for="firstName">First Name</label>
-            <input type="text" name="firstName" ngModel id="firstName" class="form-control">
+            <input type="text" name="firstName" ngModel id="firstName" class="form-control" #fname="ngModel">
+            <span class="text-danger" *ngIf="fname.invalid && fname.touched">First Name is required</span>
         </div>
         <div class="form-group">
             <label for="lastName">Last Name</label>
-            <input type="text" name="lastName" ngModel id="lastName" class="form-control">
+            <input type="text" name="lastName" ngModel id="lastName" class="form-control" #lname="ngModel">
+            <span class="text-danger" *ngIf="lname.invalid && lname.touched">First Name is required</span>
         </div>
         <div class="radiowrapper">
 
@@ -24,11 +26,13 @@
 
         <div class="form-group mt-3 mb-0" *ngIf="myForm.value.contactVal == 'Phone'">
             <label for="phoneNum">Phone Number</label>
-            <input type="text" name="phoneNum" ngModel id="phoneNum" class="form-control">
+            <input type="text" name="phoneNum" ngModel id="phoneNum" class="form-control" #phone="ngModel">
+            <span class="text-danger" *ngIf="phone.invalid && phone.touched">First Name is required</span>
         </div>
         <div class="form-group mt-3 mb-0" *ngIf="myForm.value.contactVal == 'Email'">
             <label for="email">Email Id</label>
-            <input type="text" name="email" ngModel id="email" class="form-control">
+            <input type="email" name="email" ngModel id="email" class="form-control" #email="ngModel">
+            <span class="text-danger" *ngIf="email.invalid && email.touched">First Name is required</span>
         </div>
 
         <button class="btn btn-info btn-block mt-5">Submit</button>
